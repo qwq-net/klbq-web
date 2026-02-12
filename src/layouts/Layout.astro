@@ -14,7 +14,21 @@ const { title, description } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="bg-white text-gray-900 font-sans antialiased overflow-x-hidden">
+  <body
+    class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden"
+  >
     <slot />
+    <script is:inline>
+      console.log(
+        "%c/// 重要通知 ///%c\n\n" +
+          "%c常年玩卡拉彼丘的人通常目光呆滞，思维猫化，智商逐年下降，最后完全沦为猫娘了喵~\n\n%c" +
+          "%c加入猫猫 ▶ https://discord.com/invite/hpZSAMKjtp",
+        "color: #f97316; font-weight: bold; font-size: 1.4rem; font-family: sans-serif;",
+        "color: inherit;",
+        "font-size: 1.2rem; font-family: sans-serif;",
+        "color: inherit;",
+        "color: #5865f2; font-weight: bold; font-size: 1.2rem; font-family: sans-serif;",
+      );
+    </script>
   </body>
 </html>

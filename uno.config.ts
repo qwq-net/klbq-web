@@ -3,7 +3,6 @@ import {
   presetUno,
   presetIcons,
   presetTypography,
-  presetWebFonts,
 } from "unocss";
 
 export default defineConfig({
@@ -14,10 +13,10 @@ export default defineConfig({
       warn: true,
     }),
     presetTypography(),
-    presetWebFonts({
-      fonts: {
-        sans: "Inter",
-      },
-    }),
   ],
+  theme: {
+    fontFamily: {
+      sans: '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
+    },
+  },
 });
