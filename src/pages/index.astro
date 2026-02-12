@@ -1,16 +1,69 @@
 ---
-// 超最小構成のAstroページ
+import Layout from "../layouts/Layout.astro";
+import VideoHero from "../components/VideoHero.astro";
+import QuoteBlock from "../components/QuoteBlock.astro";
+
+const title = "イキスギ紙ゲームの決定版";
+const description = "なんなんだよこのページ";
 ---
 
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Minimal</title>
-	</head>
-	<body>
-		<h1>Hello World (Minimal)</h1>
-	</body>
-</html>
+<Layout title={title} description={description}>
+  <main class="min-h-screen flex flex-col items-center p-4 sm:p-8">
+    <div
+      class="flex-grow flex flex-col items-center justify-center w-full max-w-md mx-auto space-y-8"
+    >
+      <header class="text-center w-full">
+        <h1
+          class="text-xl sm:text-4xl font-extrabold tracking-tighter text-blue-600 mb-4 transition-transform hover:scale-105 duration-300"
+        >
+          <ruby>
+            卡拉彼丘♥
+            <rt
+              class="text-xs sm:text-sm font-medium tracking-widest text-blue-400 mb-1"
+              >からびちゅ♥</rt
+            >
+          </ruby>
+        </h1>
+      </header>
+
+      <section class="w-full" aria-labelledby="hero-video-heading">
+        <h2 id="hero-video-heading" class="sr-only">イキスギビデオ</h2>
+        <a
+          href="https://www.pixiv.net/artworks/129618501"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block transition-transform hover:scale-[1.02] duration-500 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-xl"
+          aria-label="Pixivで元のgifを見る"
+        >
+          <VideoHero
+            webmSrc="/ikisugi.webm"
+            mp4Src="/ikisugi.mp4"
+            ariaLabel="イキスギループ動画"
+          />
+        </a>
+      </section>
+
+      <section class="w-full" aria-labelledby="quote-heading">
+        <h2 id="quote-heading" class="sr-only">心に響く言葉</h2>
+        <QuoteBlock
+          quote="「イキスギィ！イクイク！ンアッー！枕がデカすぎるであります！」「ミシェル、やめなさい」「PUSでは淫夢ごっこは恥ずかしいことだって、フェイも言ってる……」「おっ大丈夫ですか大丈夫ですか〜？さっすが信長先輩です！淫夢はPUSで流行ってるってはっきりわかっているんでありますねぇ」「やめろっつってんだろ頃すぞ」"
+          author="出典不明"
+        />
+      </section>
+    </div>
+
+    <footer class="mt-20 py-8 text-gray-400 text-sm">
+      <p>&copy; 1919 Painting Utopia Security.</p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  ruby {
+    ruby-position: over;
+    ruby-align: center;
+  }
+  rt {
+    font-variant-east-asian: ruby;
+  }
+</style>

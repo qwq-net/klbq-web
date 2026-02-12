@@ -1,0 +1,34 @@
+---
+interface Props {
+  webmSrc: string;
+  mp4Src: string;
+  ariaLabel?: string;
+}
+
+const { webmSrc, mp4Src, ariaLabel = "プロモーション動画" } = Astro.props;
+---
+
+<div
+  class="relative overflow-hidden rounded-xl bg-gray-100 shadow-lg w-full max-w-md mx-auto"
+>
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-label={ariaLabel}
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    preload="metadata"
+  >
+    <source src={webmSrc} type="video/webm" />
+    <source src={mp4Src} type="video/mp4" />
+    お使いのブラウザは動画再生をサポートしていません。
+  </video>
+</div>
+
+<style>
+  /* CLS対策: ビデオがロードされる前から領域を確保 */
+  div {
+    aspect-ratio: 1;
+  }
+</style>

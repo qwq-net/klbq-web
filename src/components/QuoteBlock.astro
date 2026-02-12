@@ -1,0 +1,25 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+}
+
+const { quote, author } = Astro.props;
+---
+
+<blockquote
+  class="relative border-l-4 border-blue-500 bg-blue-50/40 p-6 rounded-r-2xl text-left my-8 transition-colors hover:bg-blue-50/60"
+>
+  <span
+    class="absolute top-2 left-2 text-5xl text-blue-200 select-none leading-none font-serif opacity-40"
+    aria-hidden="true">“</span
+  >
+  <p
+    class="text-base sm:text-lg text-gray-800 italic leading-relaxed relative z-10 font-medium"
+  >
+    {quote}
+  </p>
+  <footer class="mt-6 text-right text-gray-500 font-semibold tracking-wide">
+    <cite class="not-italic">―― {author}</cite>
+  </footer>
+</blockquote>
